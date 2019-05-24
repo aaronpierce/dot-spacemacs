@@ -42,7 +42,9 @@ This function should only modify configuration layer settings."
 
      ;; languages
      ;; ----------
-     clojure
+     (clojure :variables
+              clojure-enable-clj-refactor t
+              clojure-enable-fancify-symbols t)
      python
      go
      javascript
