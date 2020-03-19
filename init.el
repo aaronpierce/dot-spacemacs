@@ -480,10 +480,18 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; Bookmark shortcuts
+  (define-key global-map [f8] 'bookmark-jump)
+  (define-key global-map [f9] 'bookmark-set)
+  (setq bookmark-default-file "~/.emacs.d/bookmarks")
+  (setq bookmark-save-flag 1)
+
   ;; Changes neo-tree theme.
   (setq neo-theme 'nerd)
 
   ;; Clojure hooks to improve development
+  (add-hook 'clojure-mode-hook #'paredit-mode)
+  (add-book 'cider-repl #'paredit-mode)
   ;; (add-hook 'clojure-mode-hook #'smartparens-strict-mode)
   ;; (add-hook 'clojure-mode-hook #'rainbow-delimiters-mode)
   ;; (add-hook 'clojure-mode-hook #'aggressive-indent-mode)
